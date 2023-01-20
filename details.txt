@@ -1,0 +1,3 @@
+this is a crud application using djnago 
+class based views are used 
+including user authentication

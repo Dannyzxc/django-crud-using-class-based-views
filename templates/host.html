@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block style %}
+    .form-control{
+        width:100%;
+        
+    }
+{% endblock style %}
+{% block body %}
+{% if user.is_authenticated %}
+<h3><a href="{% url 'my-blog' %}">back</a></h3>
+
+ <form action="" method="post">
+    {% csrf_token %}
+   
+        
+    {{form.as_p}}
+
+
+<button type="submit">submit</button>
+ {% comment %}
+ 
+<table>
+ {{form.as_table}}
+ </table>
+ {% endcomment %}
+ {% else %}
+ <h1>you need to login.....</h1>
+
+ {% endif %}
+
+{% endblock body %}
+
+

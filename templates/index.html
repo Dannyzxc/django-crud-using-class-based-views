@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    ul{
+        list-style:none;
+        
+        
+    }
+    a{
+        text-decoration:none;
+    }
+{% endblock style %}
+
+
+{% block body %}
+
+<h1>my blog</h1>
+
+{% for post in object_list %}
+<ul>
+  
+    <li><h2><a href="{% url 'my-article' post.pk %}">{{post.title}}</a></h3></li>
+    <li>author - {{post.author}}</li>
+
+{% comment "a" %}
+    <li>{{post.author.first_name}} - {{post.author.last_name}}</li>
+{% endcomment %}
+   <li> {{post.content | slice:":20"}} ...</li>
+   <hr style="width:90%;">
+
+   <br>
+</ul>
+{% endfor %}
+
+{% endblock body %}
+

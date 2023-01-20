@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blogger</title>
+    {% block header %}{% endblock header %}
+    <style>
+        {% block style %}{% endblock style %}
+       
+    </style>
+</head>
+<body>
+    <div style="display: flex; ">
+    <h3 style="margin-left:15px;"><a href="{% url 'my-blog' %}">home</a></h3>
+
+    {% if request.user.is_authenticated %}
+
+    <h3 style="margin-left:15px;"><a href="{% url 'logout' %}">logout</a></h3>
+
+    <h3 style="margin-left:15px;"><a href="{% url 'my-post' %}">add</a></h3>
+    {% else %}
+    <h3 style="margin-left:15px;"><a href="{% url 'login' %}">login</a></h3>
+
+    <h3 style="margin-left:15px;"><a href="{% url 'register-first' %}">regiser</a></h3>
+
+    {% endif %}
+    </div>
+    
+
+    <hr >
+    {% block body %}
+     
+    {% endblock body %}
+    
+</body>
+</html>
